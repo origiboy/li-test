@@ -83,9 +83,10 @@ function init() {
             }
         ]
     }
+    const sortedData = jsonData.services.slice().sort((a, b) => a.sorthead - b.sorthead);
     document.addEventListener("DOMContentLoaded", function () {
         const container = document.getElementById("app");
-        container.appendChild(createTree(jsonData.services, null));
+        container.appendChild(createTree(sortedData, null));
     
         function createTree(nodes, parentId) {
             const ulElement = document.createElement("ul");
